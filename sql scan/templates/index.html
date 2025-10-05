@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Vulnerability Scanner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            font-family: 'Montserrat', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        .main-box {
+            background: #fff;
+            margin: 60px auto;
+            padding: 38px 44px 32px 44px;
+            border-radius: 17px;
+            box-shadow: 0 8px 40px #1976d261;
+            max-width: 500px;
+            min-width: 340px;
+            transition: box-shadow 0.25s;
+        }
+        .main-box:hover {
+            box-shadow: 0 12px 52px #1565c0aa;
+        }
+        h2 {
+            color: #1976d2;
+            text-align: center;
+            font-weight: 700;
+            font-size: 2.2em;
+            margin-bottom: 32px;
+            letter-spacing: 2px;
+        }
+        label {
+            color: #333;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 1.12em;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #bdbdbd;
+            margin-bottom: 21px;
+            font-size: 1.12em;
+            outline: none;
+            box-sizing: border-box;
+        }
+        button {
+            background: linear-gradient(90deg, #1976d2 0%, #1565c0 100%);
+            color: #fff;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 7px;
+            font-family: inherit;
+            font-size: 1.22em;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.22s, color 0.22s;
+            margin-bottom: 6px;
+        }
+        button:disabled {
+            background: #b0bec5;
+            color: #ececec;
+            cursor: not-allowed;
+        }
+        #spinner {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: #1976d2;
+        }
+        .result {
+            margin-top: 36px;
+            padding: 18px 22px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px #1976d223;
+            font-size: 1.12em;
+        }
+        .result h3 {
+            color: #1565c0;
+            margin-bottom: 14px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        .result ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .result li {
+            margin-bottom: 10px;
+            background: #fff;
+            padding: 9px 13px;
+            border-radius: 7px;
+            box-shadow: 0 1px 5px #1565c044;
+            color: #2b2b2b;
+            font-weight: 500;
+            border-left: 4px solid #1976d2;
+            transition: border-color 0.25s;
+        }
+        .result li:hover {
+            border-left: 4px solid #1565c0;
+        }
+        @media (max-width: 600px) {
+            .main-box {
+                padding: 18px 8vw;
+                max-width: 95vw;
+                min-width: unset;
+            }
+            h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            const spinner = document.getElementById("spinner");
+            const button = form.querySelector("button[type='submit']");
+            form.addEventListener("submit", function() {
+                spinner.style.display = "block";
+                button.disabled = true;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="main-box">
+        <h2>URL Vulnerability Scanner</h2>
+        <form method="POST" autocomplete="off">
+            <label for="url">Full URL with parameters:</label>
+            <input type="text" id="url" name="url" placeholder="https://example.com/page.php?param1=value1&param2=value2" required>
+            <button type="submit">Start Scan</button>
+            <div id="spinner">
+                <span style="font-size:36px;">⏳</span>
+                <br>
+                <span>Processing... Please wait.</span>
+            </div>
+        </form>
+        {% if result %}
+        <div class="result">
+            <h3>Scan Results:</h3>
+            <ul>
+                {% for r in result %}
+                <li>{{ r }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
